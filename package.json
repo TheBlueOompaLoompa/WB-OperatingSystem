@@ -1,0 +1,24 @@
+{
+  "name": "wb-operatingsystem",
+  "version": "0.0.0",
+  "description": "An operating system for your web browser!",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheBlueOompaLoompa/WB-OperatingSystem.git"
+  },
+  "keywords": [
+    "typescript",
+    "node",
+    "HTML5"
+  ],
+  "author": "TheBlueOompaLoompa",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/TheBlueOompaLoompa/WB-OperatingSystem/issues"
+  },
+  "homepage": "https://github.com/TheBlueOompaLoompa/WB-OperatingSystem#readme"
+}
