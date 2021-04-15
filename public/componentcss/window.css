@@ -1,0 +1,25 @@
+.window {
+    position: absolute;
+    z-index: 9;
+    background-color: #292929;
+    border: var(--border-width) solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    text-align: center;
+}
+
+.header {
+    padding: 4px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2195f383;
+    color: #fff;
+}
+
+.header button {
+    margin-left: 8px;
+}
+
+.window :not(.header) {
+    margin: 4px;
+}
