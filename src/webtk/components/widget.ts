@@ -1,5 +1,5 @@
 export class Widget {
-	element: HTMLElement;
+	element;
 	width: number;
 	height: number;
 	visible: boolean;
