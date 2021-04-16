@@ -1,11 +1,11 @@
 #taskbar {
 	position: fixed;
-	left: 0;
-	top: 0;
+	left: 1px;
+	top: 1px;
 	display: grid;
 	grid-template-columns: 25px 6fr 3fr;
 	height: 30px;
-	width: 100%;
+	width: calc(100% - 3px);
 }
 
 #taskbar * {
@@ -29,4 +29,8 @@
 #windows {
 	width: 100%;
 	height: 100%;
+}
+
+.header * {
+	margin: 0px;
 }
