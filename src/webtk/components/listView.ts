@@ -9,8 +9,9 @@ export class ListView extends Widget {
 
 	constructor() {
 		super();
-		this.list = new Box();
-		this.addChild(this.list);
+		this.list = new Box('start');
+		this.list.setOrientation(true);
+		this.element = this.list.element;
 	}
 
 	add(widget: Widget) {
@@ -20,6 +21,17 @@ export class ListView extends Widget {
 		box.element.style.justifyContent = this.justify;
 		this.addChild(box);
 		this.boxes.push(box);
+	}
+
+	remove(widget: Widget, idx: number = 0) {
+		for(var i = 0; i < this.boxes.length; i++) {
+			console.log(this.boxes[i].element.children[idx])
+			if(widget.element == this.boxes[i].element.children[idx]){
+				this.list.removeChild(this.boxes[i]);
+				console.log('e')
+				this.boxes.splice(i, 1);
+			}
+		}
 	}
 
 	setListOrientation(orientation: boolean) {

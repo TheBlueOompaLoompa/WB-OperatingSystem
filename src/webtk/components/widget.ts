@@ -28,6 +28,14 @@ export class Widget {
 		this.element.removeChild(child.element);
 	}
 
+	getChild(child: Widget) {
+		var output;
+		for(var i = 0; i < this.element.children.length; i++) {
+			if(this.element.children[i] == child.element) output = this.element.children;
+		}
+		return output;
+	}
+
 	setWidth(width: number) {
 		this.width = width;
 		this.element.style.width = width.toString() + 'px';
