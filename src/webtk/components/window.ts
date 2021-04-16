@@ -13,7 +13,7 @@ export class Window extends Widget {
 		var draggable = draggable ? draggable : false;
 
 		if(doHeader){
-			this.header = new Header(application.uid, true);
+			this.header = new Header(application.uid, true, this);
 			this.addChild(this.header);
 			draggable = true;
 		}
@@ -74,5 +74,13 @@ export class Window extends Widget {
 	setPosition(x: number, y: number) {
 		this.element.style.left = `${x}px`
 		this.element.style.top = `${y}px`;
+	}
+
+	present() {
+		document.getElementById('windows').appendChild(this.element);
+	}
+
+	close() {
+		document.getElementById('windows').removeChild(this.element);
 	}
 }
