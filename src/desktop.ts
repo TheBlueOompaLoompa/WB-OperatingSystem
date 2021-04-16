@@ -4,6 +4,7 @@ import { Label } from './webtk/components/label.js';
 import { Window } from './webtk/components/window.js';
 
 import { Application } from './webtk/application.js';
+import { Wbtk } from './webtk/wbtk.js';
 
 export class Desktop {
 	taskbar: Taskbar;
@@ -36,6 +37,11 @@ class Taskbar extends Window {
 
 		document.getElementById('windows').appendChild(this.start.element);
 	}
+
+	async showApps(apps) {
+		var val = await apps;
+		this.start.showApps(val);
+	}
 }
 
 class Startmenu extends Window {
@@ -48,5 +54,17 @@ class Startmenu extends Window {
 		this.hide();
 
 		this.addChild(new Label('Start Menu'));
+	}
+
+	showApps(apps) {
+		apps.forEach(app => {
+			var button = new Button(() => {
+				app.main(new Wbtk())
+			});
+
+			button.addChild(new Label(app.title))
+
+			this.addChild(button);
+		});
 	}
 }
