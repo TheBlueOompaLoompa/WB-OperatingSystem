@@ -15,7 +15,24 @@ export function main(Wbtk){
 
 	apps.forEach(app => {
 		console.log(app)
-		appList.add(new Wbtk.Label(`${app} (<a href=${appsObject[app]}/meta.json>${appsObject[app]}</a>)`));
+		let listItem = new Wbtk.Box();
+		listItem.addChild(new Wbtk.Label(`${app} (<a href=${appsObject[app]}/meta.json>${appsObject[app]}</a>)`));
+		var removeButton = new Wbtk.Button(() => {
+			// Show popup
+			alert(`Source (${appsObject[app]}) has been uninstalled.\nWARNING: Uninstalling an app while it's running may leave your system unstable!`);
+
+			// Remove package from local storage
+			delete appsObject[app];
+			for(var i = 0; i < apps.length; i++){
+				if(app == apps[i]) apps.splice(i, 1);
+			}
+
+			appList.remove(listItem);
+			localStorage.setItem('apps', JSON.stringify(appList));
+		});
+		removeButton.addChild(new Wbtk.Label('Remove'));
+		listItem.addChild(removeButton)
+		appList.add(listItem);
 	});
 
 	window.addChild(appList);
