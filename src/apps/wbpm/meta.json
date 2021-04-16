@@ -1,0 +1,14 @@
+{
+	"icon": "",
+	"title": "Package Manager",
+	"name": "wbpm",
+	"description": "Manage packages in WB OperatingSystem",
+	"gui": true,
+
+	"main": "main.js",
+	"style": "style.css",
+	"keywords": [
+		"package",
+		"manager"
+	]
+}
