@@ -4,7 +4,7 @@
   "description": "An operating system for your web browser!",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "tsc -w"
+    "dev": "tsc --build tsconfig.json -w"
   },
   "repository": {
     "type": "git",
