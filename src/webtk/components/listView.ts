@@ -28,7 +28,6 @@ export class ListView extends Widget {
 			console.log(this.boxes[i].element.children[idx])
 			if(widget.element == this.boxes[i].element.children[idx]){
 				this.list.removeChild(this.boxes[i]);
-				console.log('e')
 				this.boxes.splice(i, 1);
 			}
 		}
