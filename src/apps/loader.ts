@@ -15,7 +15,7 @@ export const ApplicationLoader = {
 
 		var temp = apps ? apps : defaultApps;
 
-		if(!Object.keys(apps).includes('wbpm')) temp['wbpm'] = '/js/apps/wbpm';
+		if(!Object.keys(temp).includes('wbpm')) temp['wbpm'] = '/js/apps/wbpm';
 
 		localStorage.setItem('apps', JSON.stringify(temp));
 
