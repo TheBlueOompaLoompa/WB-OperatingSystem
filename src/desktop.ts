@@ -6,6 +6,7 @@ import { Window } from './webtk/components/window.js';
 import { Application } from './webtk/application.js';
 import { Wbtk } from './webtk/wbtk.js';
 
+
 export class Desktop {
 	taskbar: Taskbar;
 
@@ -30,7 +31,7 @@ class Taskbar extends Window {
 		this.start = new Startmenu();
 
 		this.startButton = new Button((ev) => { this.start.visible ? this.start.hide() : this.start.show() });
-		this.startButton.addChild(new Image('http://www.pngmart.com/files/3/Windows-XP-PNG-Photos.png', 25, 25));
+		this.startButton.addChild(new Image('/start.svg', 25, 25));
 		this.startButton.setWidth(25);
 		this.startButton.setHeight(25);
 		this.addChild(this.startButton);
