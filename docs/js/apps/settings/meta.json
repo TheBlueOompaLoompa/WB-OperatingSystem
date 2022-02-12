@@ -1,0 +1,16 @@
+{
+	"icon": "",
+	"title": "Settings",
+	"name": "settings",
+	"description": "Change settings in WB OperatingSystem",
+	"gui": true,
+
+	"main": "main.js",
+	"sysinit": "startup.js",
+	"style": "style.css",
+	"keywords": [
+		"settings",
+		"control",
+		"center"
+	]
+}

@@ -1,16 +1,16 @@
-import { isTemplateExpression } from "../../node_modules/typescript/lib/typescript";
-import { Wbtk } from "../webtk/wbtk";
+import App from './app.js'; 
 
 async function doGET(url) {
 	return fetch(url);
 }
 
 export const ApplicationLoader = {
-	load: async function() {
+	load: async function(): Promise<App[]> {
 		const apps = JSON.parse(localStorage.getItem('apps'));
 
 		const defaultApps = {
 			wbpm: '/js/apps/wbpm',
+			settings: '/js/apps/settings',
 		};
 
 		var temp = apps ? apps : defaultApps;
@@ -35,10 +35,18 @@ export const ApplicationLoader = {
 
 			obj['main'] = main;
 
+			if(Object.keys(obj).includes('sysinit')){
+				var sysinit = document.createElement('script');
+				sysinit.src = `${temp[keys[i]]}/startup.js`
+				var { startup } = await import(`${temp[keys[i]]}/startup.js`);
+				console.log(startup)
+				obj['sysinit'] = startup;
+			}
+
 			obj['path'] = temp[keys[i]];
 			output.push(obj);
 		}
 
-		return output;
+		return output as App[];
 	}
 }

@@ -33,4 +33,17 @@
 
 .header * {
 	margin: 0px;
+	margin-right: 5px;
+}
+
+.header * div.txtcon {
+	display: flex;
+	align-items: center;
+}
+
+.background {
+	position: fixed;
+
+	height: auto;
+	width: 100%;
 }

@@ -5,6 +5,8 @@ import { Application } from '../application.js';
 export class Window extends Widget {
 	header: Header;
 
+	focused: boolean;
+
 	constructor (application: Application, doHeader: boolean = true, draggable: boolean = true) {
 		super();
 		this.element.className = 'window';

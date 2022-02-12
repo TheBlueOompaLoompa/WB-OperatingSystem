@@ -34,13 +34,17 @@ class Startmenu extends Window {
         super(new Application('startmenu'), false, false);
         this.setPosition(0, 32);
         this.hide();
-        this.addChild(new Label('Start Menu'));
+        this.addChild(new Label('Apps'));
     }
     showApps(apps) {
         apps.forEach(app => {
+            let wbtk = new Wbtk();
             var button = new Button(() => {
-                app.main(new Wbtk());
+                app.main(wbtk);
             });
+            if (Object.keys(app).includes('sysinit')) {
+                app.sysinit(wbtk);
+            }
             button.addChild(new Label(app.title));
             this.addChild(button);
         });

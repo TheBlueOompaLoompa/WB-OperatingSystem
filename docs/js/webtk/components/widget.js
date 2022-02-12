@@ -10,6 +10,28 @@ export class Widget {
         this.element.style.visibility = 'hidden';
         this.visible = false;
     }
+    setHexpand(expand) {
+        if (!this.origH)
+            this.origH = this.element.style.width;
+        this.hexpand = expand;
+        if (expand) {
+            this.element.style.width = '100%';
+        }
+        else {
+            this.element.style.width = this.origH;
+        }
+    }
+    setVexpand(expand) {
+        if (!this.origV)
+            this.origV = this.element.style.height;
+        this.vexpand = expand;
+        if (expand) {
+            this.element.style.height = '100%';
+        }
+        else {
+            this.element.style.height = this.origV;
+        }
+    }
     addChild(child) {
         this.element.appendChild(child.element);
     }

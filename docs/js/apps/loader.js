@@ -6,6 +6,7 @@ export const ApplicationLoader = {
         const apps = JSON.parse(localStorage.getItem('apps'));
         const defaultApps = {
             wbpm: '/js/apps/wbpm',
+            settings: '/js/apps/settings',
         };
         var temp = apps ? apps : defaultApps;
         if (!Object.keys(temp).includes('wbpm'))
@@ -21,6 +22,13 @@ export const ApplicationLoader = {
             script.src = `${temp[keys[i]]}/main.js`;
             var { main } = await import(`${temp[keys[i]]}/main.js`);
             obj['main'] = main;
+            if (Object.keys(obj).includes('sysinit')) {
+                var sysinit = document.createElement('script');
+                sysinit.src = `${temp[keys[i]]}/startup.js`;
+                var { startup } = await import(`${temp[keys[i]]}/startup.js`);
+                console.log(startup);
+                obj['sysinit'] = startup;
+            }
             obj['path'] = temp[keys[i]];
             output.push(obj);
         }
